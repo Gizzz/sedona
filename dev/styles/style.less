@@ -1,0 +1,309 @@
+@import (inline) "normalize.css";
+@import (inline) "html5-boilerplate-main.css";
+
+// =====================
+// vars
+// =====================
+
+@color-blue: #81b3d2;
+@font-family-main: 'PT Sans', sans-serif;
+@font-header: 700 18px / 1 @font-family-main;
+
+// =====================
+// resets, overridings
+// =====================
+
+*,
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+// =====================
+// common
+// =====================
+
+body {
+	text-transform: uppercase;
+	font: 400 14px / 21px @font-family-main;
+}
+
+a {
+	text-decoration: none;
+}
+
+// =====================
+// block specific
+// =====================
+
+header.page {
+	position: relative;
+
+	.mobile-menu {
+		position: absolute;
+		z-index: 100;
+		width: 100%;
+		transition: all .25s;
+		transform: translateY(-100%);
+
+		&.active {
+			transform: translateY(0%);
+		}
+
+		.mobile-menu-close {
+			position: absolute;
+			right: 20px;
+			top: 17px;
+			width: 22px;
+			height: 22px;
+			background: url(../img/mobile-menu-close.svg) no-repeat 50% 50%;
+			background-size: 22px 22px;
+			cursor: pointer;
+		}
+
+		nav {
+			ul {
+				li {
+					a {
+						display: block;
+						border-top: 1px solid #9ac2db;
+						border-bottom: 1px solid #678fa8;
+						background: @color-blue;
+						color: #fff;
+						font: @font-header;
+						line-height: 56px;
+						text-align: center;
+
+						&:hover {
+							background: #669ec0 !important;
+						}
+
+						&:active {
+							background: #5496bd !important;
+							color: rgba(255, 255, 255, 0.3);
+						}
+					}
+
+					&:first-child a {
+						border-top-color: transparent;
+					}
+
+					&:last-child a {
+						position: relative;
+						
+						&:before {
+							content: "";
+							position: absolute;
+							display: block;
+							width: 100%;
+							height: 100%;
+							background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent 10%);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.topline {
+		position: relative;
+		padding: 17px 0;
+
+		.logo {
+			position: absolute;
+			z-index: 10;
+			left: 50%;
+			transform: translateX(-50%);
+			top: 0;
+			width: 140px;
+			height: 70px;
+			background: 
+				url(../img/header-logo-inner.png) no-repeat 50% 0,
+				url(../img/header-logo-outer.svg) no-repeat 50% 50%;
+			background-size: 
+				67px 56px,
+				140px 70px;
+		}
+
+		.mobile-menu-open {
+			float: right;
+			margin-right: 20px;
+			width: 22px;
+			height: 22px;
+			background: url(../img/mobile-menu-open.svg) no-repeat 50% 50%;
+			background-size: 22px 22px;
+			cursor: pointer;
+		}
+	}
+}
+
+section.billboard {
+	position: relative;
+	height: 390px;
+	background: url(../img/bg-main-billboard.jpg) no-repeat 50% 28%;
+
+	div {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.welcome {
+		top: 32px;
+		width: 196px;
+		height: 66px;
+		background: url(../img/text-welcome.png) no-repeat 50% 50%;
+	}
+
+	.sedona {
+		top: 50%;
+		transform: translateX(-50%) translateY( -50%);
+		width: 280px;
+		height: 48px;
+		background: url(../img/text-sedona.png) no-repeat 50% 50%;
+	}
+
+	.because-gk-sucks {
+		bottom: 32px;
+		width: 197px;
+		height: 54px;
+		background: url(../img/text-becausecanyon.png) no-repeat 50% 50%;
+	}
+
+	.bg-geometry {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 37px;
+		background: url(../img/main-billboard-bg-geometry.png) no-repeat 50% 1px;
+		background-size: 768px 37px;
+	}
+}
+
+section.features {
+	.intro {
+		padding: 40px 32px;
+		text-align: center;
+
+		.slogan {
+			margin-bottom: 25px;
+			font: @font-header;
+			line-height: 26px;
+		}
+
+		p {
+			line-height: 26px;
+		}
+	}
+
+	.feature {
+		.descr {
+			padding: 40px 32px;
+			text-align: center;
+			background: @color-blue;
+			color: #fff;
+
+			h1 {
+				margin-bottom: 10px;
+				font: @font-header;
+			}
+
+			.number {
+				margin-bottom: 15px;
+			}
+		}
+
+		.billboard {
+			height: 255px;
+		}
+
+		&:nth-of-type(1) .billboard {
+			background: url(../img/photo-city.jpg) no-repeat 50% 50%;
+		}
+
+		&:nth-of-type(2) .billboard {
+			background: url(../img/photo-bridge.jpg) no-repeat 50% 50%;
+		}
+
+		.perks {
+			padding: 42px 20px;
+
+			.item {
+				position: relative;
+				padding-left: 50px;
+
+				&:not(:last-child) {
+					margin-bottom: 60px;
+				}
+
+				.pic {
+					position: absolute;
+					left: 0;
+					width: 38px;
+					height: 38px;
+				}
+
+				&:nth-child(1) .pic {
+					top: -12px;
+					background: url(../img/icon-perk-1.svg) no-repeat 0 50%;
+					background-size: 38px 38px;
+				}
+
+				&:nth-child(2) .pic {
+					top: -15px;
+					background: url(../img/icon-perk-2.svg) no-repeat 0 50%;
+					background-size: 38px 38px;
+				}
+
+				&:nth-child(3) .pic {
+					top: -10px;
+					background: url(../img/icon-perk-3.svg) no-repeat 0 50%;
+					background-size: 38px 38px;
+				}
+
+				h2 {
+					margin-bottom: 20px;
+					font: @font-header;
+				}
+			}
+		}
+
+
+		&.devil-bridge {
+			.perks {
+				background: #eee;
+
+				.item {
+					padding-left: 0;
+					text-align: center;
+
+					.number {
+						margin-bottom: 15px;
+					}
+
+					&:not(:last-child):after {
+						content: "";
+						position: absolute;
+						display: block;
+						bottom: -26px;
+						width: 100%;
+						height: 1px;
+						background: #d6d6d6;
+					}
+				}
+			}
+		}
+	}
+}
