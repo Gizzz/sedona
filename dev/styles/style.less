@@ -36,8 +36,15 @@ html {
 // =====================
 
 body {
+	position: relative;
 	text-transform: uppercase;
+	text-align: center;
 	font: 400 14px / 21px @font-family-main;
+	color: #333;
+}
+
+h1, h2, h3 {
+	color: #000;
 }
 
 a {
@@ -84,7 +91,6 @@ header.page {
 						color: #fff;
 						font: @font-header;
 						line-height: 56px;
-						text-align: center;
 
 						&:hover {
 							background: #669ec0 !important;
@@ -194,30 +200,27 @@ section.billboard {
 
 section.features {
 	.intro {
-		padding: 40px 32px;
-		text-align: center;
+		padding: 40px 10%;
+		line-height: 26px;
 
 		.slogan {
 			margin-bottom: 25px;
 			font: @font-header;
-			line-height: 26px;
-		}
-
-		p {
+			// restore line-height after font setup
 			line-height: 26px;
 		}
 	}
 
 	.feature {
 		.descr {
-			padding: 40px 32px;
-			text-align: center;
+			padding: 40px 10%;
 			background: @color-blue;
 			color: #fff;
 
 			h1 {
 				margin-bottom: 10px;
 				font: @font-header;
+				color: #fff;
 			}
 
 			.number {
@@ -238,39 +241,13 @@ section.features {
 		}
 
 		.perks {
-			padding: 42px 20px;
+			padding: 42px 6.25%;
 
 			.item {
 				position: relative;
-				padding-left: 50px;
 
 				&:not(:last-child) {
 					margin-bottom: 60px;
-				}
-
-				.pic {
-					position: absolute;
-					left: 0;
-					width: 38px;
-					height: 38px;
-				}
-
-				&:nth-child(1) .pic {
-					top: -12px;
-					background: url(../img/icon-perk-1.svg) no-repeat 0 50%;
-					background-size: 38px 38px;
-				}
-
-				&:nth-child(2) .pic {
-					top: -15px;
-					background: url(../img/icon-perk-2.svg) no-repeat 0 50%;
-					background-size: 38px 38px;
-				}
-
-				&:nth-child(3) .pic {
-					top: -10px;
-					background: url(../img/icon-perk-3.svg) no-repeat 0 50%;
-					background-size: 38px 38px;
 				}
 
 				h2 {
@@ -280,15 +257,48 @@ section.features {
 			}
 		}
 
+		&.true-city {
+			.perks {
+				text-align: left;
+
+				.item {
+					padding-left: 50px;
+
+					.pic {
+						position: absolute;
+						left: 0;
+						width: 38px;
+						height: 38px;
+					}
+
+					&:nth-child(1) .pic {
+						top: -12px;
+						background: url(../img/icon-perk-1.svg) no-repeat 0 50%;
+						background-size: 38px 38px;
+					}
+
+					&:nth-child(2) .pic {
+						top: -15px;
+						background: url(../img/icon-perk-2.svg) no-repeat 0 50%;
+						background-size: 38px 38px;
+					}
+
+					&:nth-child(3) .pic {
+						top: -10px;
+						background: url(../img/icon-perk-3.svg) no-repeat 0 50%;
+						background-size: 38px 38px;
+					}
+				}
+			}
+		}
 
 		&.devil-bridge {
 			.perks {
+				padding-top: 29px;
+				padding-bottom: 29px;
 				background: #eee;
 
 				.item {
-					padding-left: 0;
-					text-align: center;
-
 					.number {
 						margin-bottom: 15px;
 					}
@@ -302,6 +312,216 @@ section.features {
 						height: 1px;
 						background: #d6d6d6;
 					}
+				}
+			}
+		}
+	}
+}
+
+section.hotels {
+	.intro {
+		padding: 29px 10%;
+
+		h1 {
+			margin-bottom: 22px;
+			font: @font-header;
+			font-size: 21px;
+		}
+	}
+
+	.find-hotel {
+		h1 {
+			padding: 32px 0;
+			background: #766357;
+			font: @font-header;
+			color: #fff;
+		}
+
+		form {
+			@padding-left: 15px;
+
+			padding: 30px 6.25% 50px;
+			line-height: 1;
+			font-weight: 700;
+			text-align: left;
+
+			.input-group {
+				margin-bottom: 28px;
+
+				label {
+					display: block;
+					margin-bottom: 13px;
+					padding-left: @padding-left;
+				}
+
+				input {
+					@bg-color: #f2f2f2;
+
+					width: 100%;
+					padding: 10px @padding-left;
+					border: none;
+					background: @bg-color;
+
+					&.date {
+						background: @bg-color url(../img/icon-calendar.svg) no-repeat right 9px center;
+					}
+
+					&.number {
+						padding-left: 38px;
+						padding-right: 38px;
+					}
+				}
+
+				&.left {
+					float: left;
+					width: 35.635%;
+				}
+
+				&.right {
+					float: right;
+					width: 35.635%;
+				}
+
+				.input-line {
+					position: relative;
+
+					&:before,
+					&:after {
+						position: absolute;
+						top: 2px;
+						display: block;
+						width: 38px;
+						height: 100%;
+						font-size: 30px;
+						text-align: center;
+						color: #a9a9a9;
+						cursor: pointer;
+					}
+
+					&:before {
+						content: "-";
+					}
+
+					&:after {
+						content: "+";
+						right: 0;
+					}
+				}
+			}
+
+			.btn {
+				display: block;
+				margin-top: 27px;
+				padding: 20px 0;
+				background: @color-blue;
+				font: @font-header;
+				font-size: 21px;
+				color: #fff;
+				text-align: center;
+			}
+		}
+	}
+
+	.map {
+		position: relative;
+		height: 593px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			z-index: 1000;
+			display: block;
+			width: 100%;
+			height: 15px;
+			background: linear-gradient(to bottom, #000, transparent);
+			opacity: .15;
+		}
+	}
+}
+
+footer.page {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 30px 0;
+	background: rgba(255, 255, 255, 0.8);
+
+	.hashtag {
+		margin-bottom: 37px;
+		font: @font-header;
+		font-size: 21px;
+	}
+
+	.social {
+		font-size: 0;
+
+		a {
+			display: inline-block;
+			width: 46px;
+			height: 46px;
+
+			&:not(:last-child) {
+				margin-right: 6px;
+			}
+
+			&.tw {
+				background: @color-blue url(../img/icon-twitter.svg) no-repeat 50% 50%;
+			}
+
+			&.fb {
+				background: @color-blue url(../img/icon-facebook.svg) no-repeat 50% 50%;
+			}
+
+			&.yt {
+				background: @color-blue url(../img/icon-youtube.svg) no-repeat 50% 50%;
+			}
+		}
+	}
+
+	.created-by {
+		color: #000;
+		line-height: 30px;
+
+		a {
+			display: inline-block;
+			margin: 0 7px;
+
+			&.studio {
+				position: relative;
+				top: 11px;
+				width: 27px;
+				height: 30px;
+				background: url(../img/logo-glukhanko.svg) no-repeat 50% 50%;
+				background-size: 27px 30px;
+			}
+
+			&.academy {
+				position: relative;
+				top: 14px;
+				width: 27px;
+				height: 33px;
+				background: url(../img/logo-htmlacademy.svg) no-repeat 50% 100%;
+				// background-size: 27px 32px;
+			}
+		}
+	}
+}
+
+// =====================
+// responsive
+// =====================
+
+@media (min-width: 575px) {
+	section.features {
+		.feature.true-city {
+			.perks {
+				padding-left: 0;
+				padding-right: 0;
+
+				.item {
+					width: 500px;
+					margin-left: auto;
+					margin-right: auto;
 				}
 			}
 		}

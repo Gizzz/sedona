@@ -157,32 +157,35 @@
                 <h1>
                     ПОИСК ГОСТИНИЦЫ В седоне
                 </h1>
-                <form>
+                <form action="#" method="get">
                     <div class="input-group">
                         <label>Дата заезда:</label>
-                        <input type="date">
+                        <input type="text" class="date">
                     </div>
                     <div class="input-group">
                         <label>Дата Выезда:</label>
-                        <input type="date">
+                        <input type="text" class="date">
                     </div>
                     <div class="row clearfix">
                         <div class="input-group left">
-                            <label>Взрослые</label>
-                            <input type="number">
+                            <label>Взрослые:</label>
+                            <div class="input-line">
+                                <input type="text" class="number">
+                            </div>
+                            
                         </div>
                         <div class="input-group right">
                             <label>Дети:</label>
-                            <input type="number">
+                            <div class="input-line">
+                                <input type="text" class="number">
+                            </div>
                         </div>
                     </div>
-                    <a href="#" class="btn">
-                        Найти
-                    </a>
+                    <a class="btn" href="#">Найти</a>
                 </form>
             </div>
-            <div class="map">
-                
+            <div class="map" id="map-canvas">
+
             </div>
         </section>
     </main>
@@ -197,14 +200,17 @@
         </div>
         <div class="created-by">
             WEBSITE by 
-            <a href="#" class="studio"></a>
+            <a class="studio" href="http://glukhanko.com/"></a>
             for 
-            <a href="#" class="academy"></a>
+            <a class="academy" href="https://htmlacademy.ru/"></a>
         </div>
     </footer>
 
     <script src="js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRRnU1niv2T7XTTltRw5nF-0wFnxSU15c">
+    </script>
     <script src="js/main.js"></script>
+
 </body>
 
 </html>
