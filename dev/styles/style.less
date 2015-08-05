@@ -6,6 +6,9 @@
 // =====================
 
 @color-blue: #81b3d2;
+@color-blue-hover: #669ec0;
+@color-blue-active: #5496bd;
+
 @font-family-main: 'PT Sans', sans-serif;
 @font-header: 700 18px / 1 @font-family-main;
 
@@ -93,11 +96,11 @@ header.page {
 						line-height: 56px;
 
 						&:hover {
-							background: #669ec0 !important;
+							background: @color-blue-hover;
 						}
 
 						&:active {
-							background: #5496bd !important;
+							background: @color-blue-active;
 							color: rgba(255, 255, 255, 0.3);
 						}
 					}
@@ -358,53 +361,48 @@ section.hotels {
 					@bg-color: #f2f2f2;
 
 					width: 100%;
-					padding: 10px @padding-left;
+					height: 38px;
 					border: none;
 					background: @bg-color;
 
 					&.date {
+						padding: 10px @padding-left;
 						background: @bg-color url(../img/icon-calendar.svg) no-repeat right 9px center;
 					}
 
 					&.number {
-						padding-left: 38px;
-						padding-right: 38px;
+						text-align: center;
 					}
 				}
 
 				&.left {
 					float: left;
-					width: 35.635%;
+					width: 114px;
 				}
 
 				&.right {
 					float: right;
-					width: 35.635%;
+					width: 114px;
 				}
 
-				.input-line {
+				.number-picker {
 					position: relative;
 
-					&:before,
-					&:after {
+					.plus,
+					.minus {
 						position: absolute;
-						top: 2px;
-						display: block;
-						width: 38px;
-						height: 100%;
-						font-size: 30px;
+						width: 36px;
+						height: 38px;
 						text-align: center;
+						font-size: 30px;
+						line-height: 35px;
 						color: #a9a9a9;
 						cursor: pointer;
 					}
 
-					&:before {
-						content: "-";
-					}
-
-					&:after {
-						content: "+";
+					.plus {
 						right: 0;
+						top: 0;
 					}
 				}
 			}
@@ -418,6 +416,15 @@ section.hotels {
 				font-size: 21px;
 				color: #fff;
 				text-align: center;
+
+				&:hover {
+					background: @color-blue-hover;
+				}
+
+				&:active {
+					background: @color-blue-active;
+					color: rgba(255, 255, 255, 0.3);
+				}
 			}
 		}
 	}
@@ -464,6 +471,19 @@ footer.page {
 				margin-right: 6px;
 			}
 
+			&.tw:hover,
+			&.fb:hover,
+			&.yt:hover {
+				background-color: @color-blue-hover;
+			}
+
+			&.tw:active,
+			&.fb:active,
+			&.yt:active {
+				background-color: @color-blue-active;
+				color: rgba(255, 255, 255, 0.3);
+			}
+
 			&.tw {
 				background: @color-blue url(../img/icon-twitter.svg) no-repeat 50% 50%;
 			}
@@ -492,7 +512,6 @@ footer.page {
 				width: 27px;
 				height: 30px;
 				background: url(../img/logo-glukhanko.svg) no-repeat 50% 50%;
-				background-size: 27px 30px;
 			}
 
 			&.academy {
@@ -501,7 +520,6 @@ footer.page {
 				width: 27px;
 				height: 33px;
 				background: url(../img/logo-htmlacademy.svg) no-repeat 50% 100%;
-				// background-size: 27px 32px;
 			}
 		}
 	}
@@ -524,6 +542,14 @@ footer.page {
 					margin-right: auto;
 				}
 			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	section.billboard {
+		.bg-geometry {
+			display: none;
 		}
 	}
 }

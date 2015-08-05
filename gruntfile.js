@@ -21,13 +21,10 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            // task: {
-                less: {
-                    files: ['dev/styles/*.less'],
-                    tasks: ['less']
-                },
-                // ,
-            // }
+            less: {
+                files: ['dev/styles/*.less'],
+                tasks: ['less']
+            },
         },
         browserSync: {
             bsFiles: {
@@ -38,7 +35,9 @@ module.exports = function(grunt) {
             options: {
                 watchTask: true,
                 server: {
-                    baseDir: "./dev/"
+                    // commented because of bower in root
+                    // baseDir: "./dev/"
+                    baseDir: "./",
                 },
             }
         },
