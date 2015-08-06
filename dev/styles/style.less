@@ -155,6 +155,10 @@ header.page {
 			background-size: 22px 22px;
 			cursor: pointer;
 		}
+
+		.desktop-menu {
+			display: none;
+		}
 	}
 }
 
@@ -169,11 +173,28 @@ section.billboard {
 		transform: translateX(-50%);
 	}
 
-	.welcome {
+	.welcome-to-the {
 		top: 32px;
 		width: 196px;
 		height: 66px;
-		background: url(../img/text-welcome.png) no-repeat 50% 50%;
+
+		.welcome {
+			position: absolute;
+			top: 0;
+			width: 196px;
+			height: 35px;
+			background: url(../img/text-welcome.svg) no-repeat 50% 50%;
+			background-size: 196px 35px;
+		}
+
+		.to-the {
+			position: absolute;
+			bottom: 0;
+			width: 196px;
+			height: 23px;
+			background: url(../img/text-tothegorgeous.svg) no-repeat 50% 50%;
+			background-size: 196px 23px;
+		}
 	}
 
 	.sedona {
@@ -181,14 +202,16 @@ section.billboard {
 		transform: translateX(-50%) translateY( -50%);
 		width: 280px;
 		height: 48px;
-		background: url(../img/text-sedona.png) no-repeat 50% 50%;
+		background: url(../img/text-sedona.svg) no-repeat 50% 50%;
+		background-size: 280px 48px;
 	}
 
 	.because-gk-sucks {
 		bottom: 32px;
 		width: 197px;
 		height: 54px;
-		background: url(../img/text-becausecanyon.png) no-repeat 50% 50%;
+		background: url(../img/text-becausecanyon.svg) no-repeat 50% 50%;
+		background-size: 197px 54px;
 	}
 
 	.bg-geometry {
@@ -369,47 +392,40 @@ section.hotels {
 						padding: 10px @padding-left;
 						background: @bg-color url(../img/icon-calendar.svg) no-repeat right 9px center;
 					}
-
-					&.number {
-						text-align: center;
-					}
 				}
 
-				&.left {
-					float: left;
-					width: 114px;
-				}
+				&.number {
+					.number-picker {
+						position: relative;
 
-				&.right {
-					float: right;
-					width: 114px;
-				}
+						.plus,
+						.minus {
+							position: absolute;
+							width: 36px;
+							height: 38px;
+							text-align: center;
+							font-size: 30px;
+							line-height: 35px;
+							color: #a9a9a9;
+							cursor: pointer;
+						}
 
-				.number-picker {
-					position: relative;
+						.plus {
+							right: 0;
+							top: 0;
+						}
 
-					.plus,
-					.minus {
-						position: absolute;
-						width: 36px;
-						height: 38px;
-						text-align: center;
-						font-size: 30px;
-						line-height: 35px;
-						color: #a9a9a9;
-						cursor: pointer;
-					}
-
-					.plus {
-						right: 0;
-						top: 0;
+						input {
+							padding-left: 36px;
+							padding-right: 36px;
+						}
 					}
 				}
 			}
 
 			.btn {
 				display: block;
-				margin-top: 27px;
+				margin-top: 55px;
 				padding: 20px 0;
 				background: @color-blue;
 				font: @font-header;
@@ -547,6 +563,54 @@ footer.page {
 }
 
 @media (min-width: 768px) {
+	header.page {
+		.mobile-menu {
+			display: none;
+		}
+
+		.topline {
+			@height-topline: 56px; 
+			height: @height-topline;
+			padding: 0;
+
+			.mobile-menu-open {
+				display: none;
+			}
+
+			.desktop-menu {
+				display: block;
+
+				ul {
+					font-size: 0;
+
+					li {
+						display: inline-block;
+						width: ~"calc((100% - 140px) / 4)";
+
+						&.logo-placeholder {
+							width: 140px;
+						}
+
+						a {
+							display: block;
+							font-size: 14px;
+							font-weight: bold;
+							line-height: @height-topline;
+							color: #000;
+							text-align: center;
+
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 769px) {
 	section.billboard {
 		.bg-geometry {
 			display: none;

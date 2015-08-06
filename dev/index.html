@@ -32,11 +32,24 @@
         <div class="topline clearfix">
             <div class="logo"></div>
             <i class="mobile-menu-open"></i>
+
+            <nav class="desktop-menu">
+                <ul>
+                    <li><a href="#">ИНФОРМАЦИЯ</a></li>
+                    <li><a href="#">ФОТО И ВИДЕО</a></li>
+                    <li class="logo-placeholder"></li>
+                    <li><a href="#">КАРТА ШТАТА</a></li>
+                    <li><a href="#">ГОСТИНИЦЫ</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
     <main>
         <section class="billboard">
-            <div class="welcome"></div>
+            <div class="welcome-to-the">
+                <div class="welcome"></div>
+                <div class="to-the"></div>
+            </div>
             <div class="sedona"></div>
             <div class="because-gk-sucks"></div>
             <div class="bg-geometry"></div>
@@ -167,22 +180,20 @@
                         <label>Дата Выезда:</label>
                         <input type="text" class="date">
                     </div>
-                    <div class="row clearfix">
-                        <div class="input-group left">
-                            <label>Взрослые:</label>
-                            <div class="number-picker">
-                                <span class="minus">-</span>
-                                <input type="text" class="number">
-                                <span class="plus">+</span>
-                            </div>
+                    <div class="input-group number">
+                        <label>Взрослые:</label>
+                        <div class="number-picker">
+                            <span class="minus">-</span>
+                            <input type="text">
+                            <span class="plus">+</span>
                         </div>
-                        <div class="input-group right">
-                            <label>Дети:</label>
-                            <div class="number-picker">
-                                <span class="minus">-</span>
-                                <input type="text" class="number">
-                                <span class="plus">+</span>
-                            </div>
+                    </div>
+                    <div class="input-group number">
+                        <label>Дети:</label>
+                        <div class="number-picker">
+                            <span class="minus">-</span>
+                            <input type="text">
+                            <span class="plus">+</span>
                         </div>
                     </div>
                     <a class="btn" href="#">Найти</a>
