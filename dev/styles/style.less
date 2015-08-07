@@ -50,8 +50,41 @@ h1, h2, h3 {
 	color: #000;
 }
 
+h1, h2 {
+	font: @font-header;
+}
+
 a {
 	text-decoration: none;
+}
+
+// Clearfix
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+//
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.make-center(@element-width) {
+	margin-left: auto;
+	margin-right: auto;
+	width: @element-width;
 }
 
 // =====================
@@ -232,7 +265,6 @@ section.features {
 		.slogan {
 			margin-bottom: 25px;
 			font: @font-header;
-			// restore line-height after font setup
 			line-height: 26px;
 		}
 	}
@@ -245,7 +277,6 @@ section.features {
 
 			h1 {
 				margin-bottom: 10px;
-				font: @font-header;
 				color: #fff;
 			}
 
@@ -267,7 +298,8 @@ section.features {
 		}
 
 		.perks {
-			padding: 42px 6.25%;
+			padding-left: 6.25%;
+			padding-right: 6.25%;
 
 			.item {
 				position: relative;
@@ -278,13 +310,14 @@ section.features {
 
 				h2 {
 					margin-bottom: 20px;
-					font: @font-header;
 				}
 			}
 		}
 
 		&.true-city {
 			.perks {
+				padding-top: 42px;
+				padding-bottom: 42px;
 				text-align: left;
 
 				.item {
@@ -295,24 +328,23 @@ section.features {
 						left: 0;
 						width: 38px;
 						height: 38px;
+						background: no-repeat 0 50%;
+						background-size: 38px 38px;
 					}
 
 					&:nth-child(1) .pic {
 						top: -12px;
-						background: url(../img/icon-perk-1.svg) no-repeat 0 50%;
-						background-size: 38px 38px;
+						background-image:  url(../img/icon-perk-1.svg);
 					}
 
 					&:nth-child(2) .pic {
 						top: -15px;
-						background: url(../img/icon-perk-2.svg) no-repeat 0 50%;
-						background-size: 38px 38px;
+						background-image: url(../img/icon-perk-2.svg);
 					}
 
 					&:nth-child(3) .pic {
 						top: -10px;
-						background: url(../img/icon-perk-3.svg) no-repeat 0 50%;
-						background-size: 38px 38px;
+						background-image: url(../img/icon-perk-3.svg);
 					}
 				}
 			}
@@ -325,6 +357,10 @@ section.features {
 				background: #eee;
 
 				.item {
+					h2 {
+						margin-bottom: 12px;
+					}
+
 					.number {
 						margin-bottom: 15px;
 					}
@@ -350,7 +386,6 @@ section.hotels {
 
 		h1 {
 			margin-bottom: 22px;
-			font: @font-header;
 			font-size: 21px;
 		}
 	}
@@ -359,7 +394,6 @@ section.hotels {
 		h1 {
 			padding: 32px 0;
 			background: #766357;
-			font: @font-header;
 			color: #fff;
 		}
 
@@ -372,6 +406,8 @@ section.hotels {
 			text-align: left;
 
 			.input-group {
+				@bg-color: #f2f2f2;
+
 				margin-bottom: 28px;
 
 				label {
@@ -381,14 +417,14 @@ section.hotels {
 				}
 
 				input {
-					@bg-color: #f2f2f2;
-
 					width: 100%;
 					height: 38px;
 					border: none;
 					background: @bg-color;
+				}
 
-					&.date {
+				&.date {
+					input {
 						padding: 10px @padding-left;
 						background: @bg-color url(../img/icon-calendar.svg) no-repeat right 9px center;
 					}
@@ -418,6 +454,7 @@ section.hotels {
 						input {
 							padding-left: 36px;
 							padding-right: 36px;
+							text-align: center;
 						}
 					}
 				}
@@ -452,7 +489,7 @@ section.hotels {
 		&:before {
 			content: "";
 			position: absolute;
-			z-index: 1000;
+			z-index: 10;
 			display: block;
 			width: 100%;
 			height: 15px;
@@ -553,9 +590,7 @@ footer.page {
 				padding-right: 0;
 
 				.item {
-					width: 500px;
-					margin-left: auto;
-					margin-right: auto;
+					.make-center(500px);
 				}
 			}
 		}
@@ -563,6 +598,11 @@ footer.page {
 }
 
 @media (min-width: 768px) {
+	h1, h2 {
+		font-size: 21px;
+		line-height: 26px;
+	}
+
 	header.page {
 		.mobile-menu {
 			display: none;
@@ -608,6 +648,258 @@ footer.page {
 			}
 		}
 	}
+
+	section.billboard {
+		height: 512px;
+
+		.welcome-to-the {
+			width: 256px;
+			height: 86px;
+
+			.welcome {
+				width: 256px;
+				height: 45px;
+				background-size: 256px 45px;
+			}
+
+			.to-the {
+				width: 256px;
+				height: 30px;
+				background-size: 256px 30px;
+			}
+		}
+
+		.sedona {
+			width: 458px;
+			height: 78px;
+			background-size: 458px 78px;
+		}
+
+		.because-gk-sucks {
+			width: 295px;
+			height: 80px;
+			background-size: 295px 80px;
+		}
+	}
+
+	section.features {
+		.intro {
+			padding-top: 55px;
+			padding-bottom: 55px;
+
+			.slogan {
+				.make-center(445px);
+
+				font-size: 21px;
+			}
+		}
+
+		.feature {
+			.clearfix();
+
+			.descr {
+				float: left;
+				width: calc(100% / 3);
+				height: 256px;
+				padding-left: 0;
+				padding-right: 0;
+
+				h1, div, p {
+					padding-left: 17%;
+					padding-right: 17%;
+				}
+			}
+
+			.billboard {
+				float: left;
+				width: calc(100% / 3 * 2);
+				height: 256px;
+			}
+
+			.perks {
+				float: left;
+				width: 100%;
+
+				.item {
+					float: left;
+					text-align: center;
+
+					&:not(:last-child) {
+						margin-bottom: 00px;
+					}
+				}
+			}
+
+			&.true-city {
+				.perks {
+					padding: 0;
+
+					.item {
+						width: calc(100% / 3);
+						height: 330px;
+						padding-left: 0;
+						padding-top: 60px;
+
+						.pic {
+							position: static;
+							display: inline-block;
+							width: 75px;
+							height: 75px;
+							margin-bottom: 20px;
+							background-position: 50% 50%;
+							background-size: 75px 75px;
+						}
+
+						h2, p {
+							padding-left: 10%;
+							padding-right: 10%;
+						}
+					}
+				}
+			}
+
+			&.devil-bridge {
+				.descr {
+					float: right;
+				}
+
+				.billboard {
+					float: left;
+				}
+
+				.perks {
+					padding: 0;
+
+					.item {
+						width: calc(100% / 3);
+						height: 256px;
+						padding-top: 45px;
+
+						h2 {
+							.make-center(155px);
+						}
+
+						p {
+							.make-center(160px);
+						}
+
+						&:not(:last-child):after {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	section.hotels {
+		position: relative;
+
+		.intro {
+			padding-top: 55px;
+			padding-bottom: 135px;
+
+			h1 {
+				font-size: 30px;
+			}
+
+			p {
+				.make-center(440px);
+				
+				line-height: 24px;
+			}
+		}
+
+		.find-hotel {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			top: 196px;
+			z-index: 100;
+			width: 568px;
+
+			form {
+				background: #fff;
+				padding: 55px 57px;
+
+				.input-group {
+					.clearfix();
+
+					margin-bottom: 30px;
+
+					label {
+						float: left;
+						width: 25%;
+						margin-bottom: 0;
+						padding-left: 0;
+					    line-height: 38px;
+					}
+
+					input {
+						float: left;
+					}
+
+					&.date {
+						input {
+							width: 75%;
+						}
+					}
+
+					&.number {
+						float: left;
+						width: 50%;
+
+						label {
+							float: left;
+							width: 50%;
+						}
+
+						&:last-of-type label {
+							padding-left: 50px;
+						}
+
+						.number-picker {
+							float: left;
+							width: 50%;
+
+							input {
+								padding-left: 0;
+								padding-right: 0;
+							}
+						}
+					}
+				}
+
+				.btn {
+					clear: both;
+				}
+			}
+		}
+
+		.map {
+			height: 595px;
+		}
+	}
+
+	footer.page {
+		.hashtag,
+		.social,
+		.created-by {
+			float: left;
+			width: calc(100% / 3);
+			line-height: 46px;
+			height: 46px;
+		}
+
+		.hashtag {
+			margin-bottom: 0;
+		}
+
+		.created-by {
+			position: relative;
+			top: -4px;
+		}
+	}
 }
 
 @media (min-width: 769px) {
@@ -615,5 +907,18 @@ footer.page {
 		.bg-geometry {
 			display: none;
 		}
+	}
+}
+
+@media (min-width: 1200px) {
+	body {
+		background: darken(#f2f2f2, 10%);
+	}
+
+	.container {
+		.make-center(1200px);
+
+		position: relative;
+		background: #fff;
 	}
 }

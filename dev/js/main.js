@@ -17,7 +17,7 @@ $(function () {
 
 	$.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
 
-	$("input.date").datepicker({
+	$("input.js-datepicker").datepicker({
 		dateFormat: "d MM yy",
 	});
 

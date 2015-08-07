@@ -743,6 +743,10 @@ h2,
 h3 {
   color: #000;
 }
+h1,
+h2 {
+  font: 700 18px / 1 'PT Sans', sans-serif;
+}
 a {
   text-decoration: none;
 }
@@ -897,7 +901,6 @@ section.features .feature .descr {
 }
 section.features .feature .descr h1 {
   margin-bottom: 10px;
-  font: 700 18px / 1 'PT Sans', sans-serif;
   color: #fff;
 }
 section.features .feature .descr .number {
@@ -913,7 +916,8 @@ section.features .feature:nth-of-type(2) .billboard {
   background: url(../img/photo-bridge.jpg) no-repeat 50% 50%;
 }
 section.features .feature .perks {
-  padding: 42px 6.25%;
+  padding-left: 6.25%;
+  padding-right: 6.25%;
 }
 section.features .feature .perks .item {
   position: relative;
@@ -923,9 +927,10 @@ section.features .feature .perks .item:not(:last-child) {
 }
 section.features .feature .perks .item h2 {
   margin-bottom: 20px;
-  font: 700 18px / 1 'PT Sans', sans-serif;
 }
 section.features .feature.true-city .perks {
+  padding-top: 42px;
+  padding-bottom: 42px;
   text-align: left;
 }
 section.features .feature.true-city .perks .item {
@@ -936,26 +941,28 @@ section.features .feature.true-city .perks .item .pic {
   left: 0;
   width: 38px;
   height: 38px;
+  background: no-repeat 0 50%;
+  background-size: 38px 38px;
 }
 section.features .feature.true-city .perks .item:nth-child(1) .pic {
   top: -12px;
-  background: url(../img/icon-perk-1.svg) no-repeat 0 50%;
-  background-size: 38px 38px;
+  background-image: url(../img/icon-perk-1.svg);
 }
 section.features .feature.true-city .perks .item:nth-child(2) .pic {
   top: -15px;
-  background: url(../img/icon-perk-2.svg) no-repeat 0 50%;
-  background-size: 38px 38px;
+  background-image: url(../img/icon-perk-2.svg);
 }
 section.features .feature.true-city .perks .item:nth-child(3) .pic {
   top: -10px;
-  background: url(../img/icon-perk-3.svg) no-repeat 0 50%;
-  background-size: 38px 38px;
+  background-image: url(../img/icon-perk-3.svg);
 }
 section.features .feature.devil-bridge .perks {
   padding-top: 29px;
   padding-bottom: 29px;
   background: #eee;
+}
+section.features .feature.devil-bridge .perks .item h2 {
+  margin-bottom: 12px;
 }
 section.features .feature.devil-bridge .perks .item .number {
   margin-bottom: 15px;
@@ -974,13 +981,11 @@ section.hotels .intro {
 }
 section.hotels .intro h1 {
   margin-bottom: 22px;
-  font: 700 18px / 1 'PT Sans', sans-serif;
   font-size: 21px;
 }
 section.hotels .find-hotel h1 {
   padding: 32px 0;
   background: #766357;
-  font: 700 18px / 1 'PT Sans', sans-serif;
   color: #fff;
 }
 section.hotels .find-hotel form {
@@ -1003,7 +1008,7 @@ section.hotels .find-hotel form .input-group input {
   border: none;
   background: #f2f2f2;
 }
-section.hotels .find-hotel form .input-group input.date {
+section.hotels .find-hotel form .input-group.date input {
   padding: 10px 15px;
   background: #f2f2f2 url(../img/icon-calendar.svg) no-repeat right 9px center;
 }
@@ -1028,6 +1033,7 @@ section.hotels .find-hotel form .input-group.number .number-picker .plus {
 section.hotels .find-hotel form .input-group.number .number-picker input {
   padding-left: 36px;
   padding-right: 36px;
+  text-align: center;
 }
 section.hotels .find-hotel form .btn {
   display: block;
@@ -1053,7 +1059,7 @@ section.hotels .map {
 section.hotels .map:before {
   content: "";
   position: absolute;
-  z-index: 1000;
+  z-index: 10;
   display: block;
   width: 100%;
   height: 15px;
@@ -1131,12 +1137,17 @@ footer.page .created-by a.academy {
     padding-right: 0;
   }
   section.features .feature.true-city .perks .item {
-    width: 500px;
     margin-left: auto;
     margin-right: auto;
+    width: 500px;
   }
 }
 @media (min-width: 768px) {
+  h1,
+  h2 {
+    font-size: 21px;
+    line-height: 26px;
+  }
   header.page .mobile-menu {
     display: none;
   }
@@ -1171,9 +1182,237 @@ footer.page .created-by a.academy {
   header.page .topline .desktop-menu ul li a:hover {
     text-decoration: underline;
   }
+  section.billboard {
+    height: 512px;
+  }
+  section.billboard .welcome-to-the {
+    width: 256px;
+    height: 86px;
+  }
+  section.billboard .welcome-to-the .welcome {
+    width: 256px;
+    height: 45px;
+    background-size: 256px 45px;
+  }
+  section.billboard .welcome-to-the .to-the {
+    width: 256px;
+    height: 30px;
+    background-size: 256px 30px;
+  }
+  section.billboard .sedona {
+    width: 458px;
+    height: 78px;
+    background-size: 458px 78px;
+  }
+  section.billboard .because-gk-sucks {
+    width: 295px;
+    height: 80px;
+    background-size: 295px 80px;
+  }
+  section.features .intro {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+  section.features .intro .slogan {
+    margin-left: auto;
+    margin-right: auto;
+    width: 445px;
+    font-size: 21px;
+  }
+  section.features .feature:before,
+  section.features .feature:after {
+    content: " ";
+    display: table;
+  }
+  section.features .feature:after {
+    clear: both;
+  }
+  section.features .feature .descr {
+    float: left;
+    width: calc(33.33333333%);
+    height: 256px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  section.features .feature .descr h1,
+  section.features .feature .descr div,
+  section.features .feature .descr p {
+    padding-left: 17%;
+    padding-right: 17%;
+  }
+  section.features .feature .billboard {
+    float: left;
+    width: calc(66.66666667%);
+    height: 256px;
+  }
+  section.features .feature .perks {
+    float: left;
+    width: 100%;
+  }
+  section.features .feature .perks .item {
+    float: left;
+    text-align: center;
+  }
+  section.features .feature .perks .item:not(:last-child) {
+    margin-bottom: 00px;
+  }
+  section.features .feature.true-city .perks {
+    padding: 0;
+  }
+  section.features .feature.true-city .perks .item {
+    width: calc(33.33333333%);
+    height: 330px;
+    padding-left: 0;
+    padding-top: 60px;
+  }
+  section.features .feature.true-city .perks .item .pic {
+    position: static;
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    margin-bottom: 20px;
+    background-position: 50% 50%;
+    background-size: 75px 75px;
+  }
+  section.features .feature.true-city .perks .item h2,
+  section.features .feature.true-city .perks .item p {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  section.features .feature.devil-bridge .descr {
+    float: right;
+  }
+  section.features .feature.devil-bridge .billboard {
+    float: left;
+  }
+  section.features .feature.devil-bridge .perks {
+    padding: 0;
+  }
+  section.features .feature.devil-bridge .perks .item {
+    width: calc(33.33333333%);
+    height: 256px;
+    padding-top: 45px;
+  }
+  section.features .feature.devil-bridge .perks .item h2 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 155px;
+  }
+  section.features .feature.devil-bridge .perks .item p {
+    margin-left: auto;
+    margin-right: auto;
+    width: 160px;
+  }
+  section.features .feature.devil-bridge .perks .item:not(:last-child):after {
+    display: none;
+  }
+  section.hotels {
+    position: relative;
+  }
+  section.hotels .intro {
+    padding-top: 55px;
+    padding-bottom: 135px;
+  }
+  section.hotels .intro h1 {
+    font-size: 30px;
+  }
+  section.hotels .intro p {
+    margin-left: auto;
+    margin-right: auto;
+    width: 440px;
+    line-height: 24px;
+  }
+  section.hotels .find-hotel {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 196px;
+    z-index: 100;
+    width: 568px;
+  }
+  section.hotels .find-hotel form {
+    background: #fff;
+    padding: 55px 57px;
+  }
+  section.hotels .find-hotel form .input-group {
+    margin-bottom: 30px;
+  }
+  section.hotels .find-hotel form .input-group:before,
+  section.hotels .find-hotel form .input-group:after {
+    content: " ";
+    display: table;
+  }
+  section.hotels .find-hotel form .input-group:after {
+    clear: both;
+  }
+  section.hotels .find-hotel form .input-group label {
+    float: left;
+    width: 25%;
+    margin-bottom: 0;
+    padding-left: 0;
+    line-height: 38px;
+  }
+  section.hotels .find-hotel form .input-group input {
+    float: left;
+  }
+  section.hotels .find-hotel form .input-group.date input {
+    width: 75%;
+  }
+  section.hotels .find-hotel form .input-group.number {
+    float: left;
+    width: 50%;
+  }
+  section.hotels .find-hotel form .input-group.number label {
+    float: left;
+    width: 50%;
+  }
+  section.hotels .find-hotel form .input-group.number:last-of-type label {
+    padding-left: 50px;
+  }
+  section.hotels .find-hotel form .input-group.number .number-picker {
+    float: left;
+    width: 50%;
+  }
+  section.hotels .find-hotel form .input-group.number .number-picker input {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  section.hotels .find-hotel form .btn {
+    clear: both;
+  }
+  section.hotels .map {
+    height: 595px;
+  }
+  footer.page .hashtag,
+  footer.page .social,
+  footer.page .created-by {
+    float: left;
+    width: calc(33.33333333%);
+    line-height: 46px;
+    height: 46px;
+  }
+  footer.page .hashtag {
+    margin-bottom: 0;
+  }
+  footer.page .created-by {
+    position: relative;
+    top: -4px;
+  }
 }
 @media (min-width: 769px) {
   section.billboard .bg-geometry {
     display: none;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    background: #d9d9d9;
+  }
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    position: relative;
+    background: #fff;
   }
 }
