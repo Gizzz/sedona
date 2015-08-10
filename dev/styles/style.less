@@ -584,6 +584,12 @@ footer.page {
 
 @media (min-width: 575px) {
 	section.features {
+		.intro {
+			.slogan {
+				.make-center(400px);
+			}
+		}
+
 		.feature.true-city {
 			.perks {
 				padding-left: 0;
@@ -592,6 +598,14 @@ footer.page {
 				.item {
 					.make-center(500px);
 				}
+			}
+		}
+	}
+
+	section.hotels {
+		.intro {
+			p {
+				.make-center(440px);
 			}
 		}
 	}
@@ -704,7 +718,7 @@ footer.page {
 				padding-left: 0;
 				padding-right: 0;
 
-				h1, div, p {
+				p {
 					padding-left: 17%;
 					padding-right: 17%;
 				}
@@ -731,6 +745,12 @@ footer.page {
 			}
 
 			&.true-city {
+				.descr {
+					h1 {
+						.make-center(150px);
+					}
+				}
+
 				.perks {
 					padding: 0;
 
@@ -750,9 +770,10 @@ footer.page {
 							background-size: 75px 75px;
 						}
 
-						h2, p {
-							padding-left: 10%;
-							padding-right: 10%;
+						p {
+							.make-center(80%);
+
+							max-width: 270px;
 						}
 					}
 				}
@@ -761,6 +782,10 @@ footer.page {
 			&.devil-bridge {
 				.descr {
 					float: right;
+
+					h1 {
+						.make-center(151px);
+					}
 				}
 
 				.billboard {

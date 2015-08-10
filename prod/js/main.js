@@ -17,14 +17,14 @@ $(function () {
 
 	$.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
 
-	$("input.date").datepicker({
+	$("input.js-datepicker").datepicker({
 		dateFormat: "d MM yy",
 	});
 
 	// number picker
 
 	$(".number-picker .plus").on("click", function() {
-		var $input = $(this).parent().find("input.number");
+		var $input = $(this).parent().find("input");
     	var value = $input.val();
     	value = parseInt(value);
 
@@ -37,7 +37,7 @@ $(function () {
     })
 
     $(".number-picker .minus").on("click", function() {
-		var $input = $(this).parent().find("input.number");
+		var $input = $(this).parent().find("input");
     	var value = $input.val();
     	value = parseInt(value);
 
