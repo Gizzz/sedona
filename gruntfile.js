@@ -57,7 +57,10 @@ module.exports = function(grunt) {
                     'pict/**',
 
                     'fonts/**',
-                    'js/**',
+
+                    // usemin do this job
+                    // 'js/**',
+
                     'favicon.ico',
                     '*.html'
                 ],
@@ -83,6 +86,15 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        useminPrepare: {
+            html: 'dev/index.html',
+            options: {
+                dest: 'prod'
+            }
+        },
+        usemin: {
+            html: 'prod/index.html',
+        },
     });
 
     // cmd line tasks
@@ -101,7 +113,14 @@ module.exports = function(grunt) {
         'cssmin'
     ]);
 
-    grunt.registerTask('default', [
-        'dev',
+    // simple build task
+    grunt.registerTask('usemin-task', [
+        'useminPrepare',
+        'concat:generated',
+        // 'cssmin:generated',
+        'uglify:generated',
+        // 'filerev',
+        'usemin'
     ]);
+
 };
