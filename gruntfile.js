@@ -5,22 +5,16 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         less: {
-            dev: {
+            task: {
                 options: {
                     paths: ["dev/styles"],
+                    // cssmin remove soucemap in "prod" version
                     sourceMap: true,
                     sourceMapFileInline: true,
                 },
                 src: 'dev/styles/style.less',
                 dest: 'dev/styles/style.css'
             },
-            prod: {
-                options: {
-                    paths: ["dev/styles"],
-                },
-                src: 'dev/styles/style.less',
-                dest: 'prod/styles/style.css'
-            }
         },
         watch: {
             less: {
@@ -37,53 +31,46 @@ module.exports = function(grunt) {
             options: {
                 watchTask: true,
                 server: {
-                    // commented because of bower in root
-                    // baseDir: "./dev/"
                     baseDir: "./",
                 },
             }
         },
         clean: {
             prod: {
-                src: ["prod"]
+                src: [
+                    ".tmp",
+                    "prod",
+                ]
             }
         },
         copy: {
-            prod: {
+            main: {
                 expand: true,
                 cwd: 'dev/',
                 src: [
                     'img/**',
                     'pict/**',
-
                     'fonts/**',
-
-                    // usemin do this job
-                    // 'js/**',
-
                     'favicon.ico',
                     '*.html'
                 ],
                 dest: 'prod/',
+            },
+            // images for jquery-ui theme
+            extra: {
+                expand: true,
+                cwd: 'bower_components/jquery-ui/themes/base/',
+                src: 'images/**',
+                dest: 'prod/styles/',
             }
         },
         autoprefixer: {
             dev: {
                 options: {
-                    browsers: ['last 2 versions'],
+                    browsers: ['last 4 versions'],
                 },
-                src:  'prod/styles/style.css',
-                dest: 'prod/styles/style.css',
-            }
-        },
-        cssmin: {
-            prod: {
-                files: [{
-                    expand: true,
-                    cwd: 'prod/styles/',
-                    src:  'style.css',
-                    dest: 'prod/styles/',
-                }]
+                src:  'prod/styles/bundle.css',
+                dest: 'prod/styles/bundle.css',
             }
         },
         useminPrepare: {
@@ -99,28 +86,25 @@ module.exports = function(grunt) {
 
     // cmd line tasks
 
-    grunt.registerTask('dev', [
-        'less:dev',
+    grunt.registerTask('server', [
+        'less',
         'browserSync',
         'watch',
     ]);
 
-    grunt.registerTask('prod', [
-        'clean',
-        'copy',
-        'less:prod',
-        'autoprefixer',
-        'cssmin'
-    ]);
-
-    // simple build task
     grunt.registerTask('usemin-task', [
         'useminPrepare',
         'concat:generated',
-        // 'cssmin:generated',
+        'cssmin:generated',
         'uglify:generated',
-        // 'filerev',
         'usemin'
     ]);
 
+    grunt.registerTask('build', [
+        'clean',
+        'copy:main',
+        'copy:extra',
+        'usemin-task',
+        'autoprefixer',
+    ]);
 };
