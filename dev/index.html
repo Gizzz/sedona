@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.ico" />
-    <!-- <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet'> -->
 
     <!-- build:css styles/bundle.css -->
     <link rel="stylesheet" href="styles/normalize.css">
@@ -227,16 +226,8 @@
         </footer>
     </div>
 
-    <!-- build:js js/bundle.js -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/jquery-ui/ui/datepicker.js"></script>
-    <script src="../bower_components/jquery-ui/ui/i18n/datepicker-ru.js"></script>
-    <script src="js/app.js"></script>
-    <!-- endbuild -->
-
     <!-- map scripts -->
-    
-    <!--<script>
+    <script>
         function initMap() {
             var mapOptions = {
                 center: { lat: -34.397, lng: 150.644},
@@ -254,7 +245,14 @@
         google.maps.event.addDomListener(window, 'load', initMap);
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRRnU1niv2T7XTTltRw5nF-0wFnxSU15c&callback=initMap">
-    </script>-->
+    </script>
+
+    <!-- build:js js/bundle.js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/jquery-ui/ui/datepicker.js"></script>
+    <script src="../bower_components/jquery-ui/ui/i18n/datepicker-ru.js"></script>
+    <script src="js/app.js"></script>
+    <!-- endbuild -->
 </body>
 
 </html>
