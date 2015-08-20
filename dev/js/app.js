@@ -49,19 +49,19 @@ $(function () {
 
     // map
 
-    function initialize() {
-        var mapOptions = {
-            center: { lat: -34.397, lng: 150.644},
-            zoom: 9,
-            scrollwheel: false,
-            draggable: false,
-            disableDoubleClickZoom: true,
-            disableDefaultUI: true,
-        };
+    // function initMap() {
+    //     var mapOptions = {
+    //         center: { lat: -34.397, lng: 150.644},
+    //         zoom: 9,
+    //         scrollwheel: false,
+    //         draggable: false,
+    //         disableDoubleClickZoom: true,
+    //         disableDefaultUI: true,
+    //     };
 
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
-    }
+    //     var map = new google.maps.Map(document.getElementById('map-canvas'),
+    //         mapOptions);
+    // }
 
-    google.maps.event.addDomListener(window, 'load', initialize);
+    // google.maps.event.addDomListener(window, 'load', initMap);
 });

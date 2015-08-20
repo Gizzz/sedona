@@ -2,6 +2,7 @@
 
 module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
+    var mozjpeg = require('imagemin-mozjpeg');
 
     grunt.initConfig({
         less: {
@@ -82,6 +83,26 @@ module.exports = function(grunt) {
         usemin: {
             html: 'prod/index.html',
         },
+        imagemin: {
+            task: {
+                options: {
+                    optimizationLevel: 3,
+                    // svgoPlugins: [{
+                    //     removeViewBox: false
+                    // }],
+                    use: [mozjpeg({
+                        quality: 70
+                    })],
+                    // progressive: true,
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dev/img/',
+                    src: ['**/*.*'],
+                    dest: 'prod/img/'
+                }]
+            }
+        },
     });
 
     // cmd line tasks
@@ -106,5 +127,6 @@ module.exports = function(grunt) {
         'copy:extra',
         'usemin-task',
         'autoprefixer',
+        'imagemin',
     ]);
 };
