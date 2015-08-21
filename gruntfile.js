@@ -91,7 +91,7 @@ module.exports = function(grunt) {
                     //     removeViewBox: false
                     // }],
                     use: [mozjpeg({
-                        quality: 70
+                        quality: 75
                     })],
                     // progressive: true,
                 },
