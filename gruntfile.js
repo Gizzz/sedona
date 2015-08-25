@@ -10,8 +10,8 @@ module.exports = function(grunt) {
                 options: {
                     paths: ["dev/styles"],
                     // cssmin remove soucemap in "prod" version
-                    sourceMap: true,
-                    sourceMapFileInline: true,
+                    // sourceMap: true,
+                    // sourceMapFileInline: true,
                 },
                 src: 'dev/styles/style.less',
                 dest: 'dev/styles/style.css'
@@ -42,6 +42,12 @@ module.exports = function(grunt) {
                     ".tmp",
                     "prod",
                 ]
+            },
+            // helper task for responsive_images - clean img working folder
+            resp_img: {
+                src: [
+                    "dev/img/*.*"
+                ]
             }
         },
         copy: {
@@ -49,9 +55,9 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'dev/',
                 src: [
-                    'img/**',
-                    'pict/**',
-                    'fonts/**',
+                    // 'img/**',
+                    // 'pict/**',
+                    // 'fonts/**',
                     'favicon.ico',
                     '*.html'
                 ],
@@ -63,7 +69,14 @@ module.exports = function(grunt) {
                 cwd: 'bower_components/jquery-ui/themes/base/',
                 src: 'images/**',
                 dest: 'prod/styles/',
-            }
+            },
+            // helper task for responsive_images - copy src images to working folder
+            resp_img: {
+                expand: true,
+                cwd: 'dev/img/src/',
+                src: '*.*',
+                dest: 'dev/img/',
+            },
         },
         autoprefixer: {
             dev: {
@@ -86,22 +99,111 @@ module.exports = function(grunt) {
         imagemin: {
             task: {
                 options: {
-                    optimizationLevel: 3,
-                    // svgoPlugins: [{
-                    //     removeViewBox: false
-                    // }],
                     use: [mozjpeg({
                         quality: 75
                     })],
-                    // progressive: true,
                 },
                 files: [{
                     expand: true,
                     cwd: 'dev/img/',
-                    src: ['**/*.*'],
+                    src: ['*.*'],
                     dest: 'prod/img/'
                 }]
             }
+        },
+        responsive_images: {
+            "bg-main-billboard.jpg": {
+                options: {
+                    sizes: [
+                        {
+                            width: "320px",
+                            height: "390px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w320px",
+                            quality: 92,
+                        },
+                        {
+                            width: "480px",
+                            height: "390px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w480px",
+                            quality: 92,
+                        },
+                        {
+                            width: "767px",
+                            height: "425px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w767px",
+                            quality: 92,
+                            gravity: "North",
+                        },
+                        {
+                            width: "1200px",
+                            height: "600px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w1200px",
+                            quality: 92,
+                            gravity: "North",
+                        },
+                    ]
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dev/img/src/',
+                    src: 'bg-main-billboard.jpg',
+                    dest: 'dev/img/',
+                }],
+            },
+            "bg-main-billboard@2x.jpg": {
+                options: {
+                    sizes: [
+                        {
+                            width: "640px",
+                            height: "780px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w320px@2x",
+                            quality: 92,
+                        },
+                        {
+                            width: "960px",
+                            height: "780px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w480px@2x",
+                            quality: 92,
+                        },
+                        {
+                            width: "1534px",
+                            height: "850px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w767px@2x",
+                            quality: 92,
+                            gravity: "North",
+                        },
+                        {
+                            width: "2400px",
+                            height: "1200px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w1200px@2x",
+                            quality: 92,
+                            gravity: "North",
+                        },
+                    ]
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dev/img/src/2x/',
+                    src: 'bg-main-billboard.jpg',
+                    dest: 'dev/img/',
+                }],
+            },
         },
     });
 
@@ -121,12 +223,21 @@ module.exports = function(grunt) {
         'usemin'
     ]);
 
+    grunt.registerTask('resp-img-task', [
+        'clean:resp_img',
+        'copy:resp_img',
+        'responsive_images',
+    ]);
+
     grunt.registerTask('build', [
-        'clean',
+        'clean:prod',
         'copy:main',
         'copy:extra',
+        
         'usemin-task',
         'autoprefixer',
+
+        'resp-img-task',
         'imagemin',
     ]);
 };
