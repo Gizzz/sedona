@@ -983,10 +983,34 @@ footer.page {
 // responsive images
 // -----------------
 
+@media screen and (min-resolution: 192dpi) {
+	header.page .topline .logo {
+		background: 
+			url(../img/header-logo-inner@2x.png) no-repeat 50% 0, 
+			url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4wLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSLzIwMDEvUkVDLVNWRy0yMDAxMDkwNC9EVEQvc3ZnMTAuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4wIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxMzdweCIgaGVpZ2h0PSI3MC43NzhweCIgdmlld0JveD0iMCAwIDEzNyA3MC43NzgiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEzNyA3MC43NzgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iIzgxYjNkMiIgZD0iTTEzNywwaC0xNC4xNzNIMTQuMTczSDBsMzEuMjc5LDM1LjE2MWwwLDBsMjcuOCwzMS4yNDljNS4xODIsNS44MjQsMTMuNjYsNS44MjQsMTguODQyLDBsMjcuOC0zMS4yNDlsMCwwTDEzNywweiIvPg0KPC9zdmc+DQo=') 
+                /*../img/header-logo-outer.svg*/ no-repeat 50% 50%;
+		background-size: 
+			67px 56px,
+			140px 70px;
+	}
+}
+
 @media screen and (max-width: 320px) {
 	@media (min-resolution: 96dpi) {
 		section.billboard {
 			background-image: url(../img/bg-main-billboard@w320px.jpg);
+		}
+
+		section.features .feature:nth-of-type(1) .billboard {
+		    background-image: url(../img/photo-city@w320px.jpg);
+		}
+
+		section.features .feature:nth-of-type(2) .billboard {
+		    background-image: url(../img/photo-bridge@w320px.jpg);
+		}
+
+		section.hotels .map {
+			background-image: url(../img/map-dummy@w320px.jpg);
 		}
 	}
 
@@ -994,6 +1018,16 @@ footer.page {
 		section.billboard {
 			background-image: url(../img/bg-main-billboard@w320px@2x.jpg);
 			background-size: 320px 390px;
+		}
+
+		section.features .feature:nth-of-type(1) .billboard {
+		    background-image: url(../img/photo-city@w320px@2x.jpg);
+		    background-size: 320px 255px;
+		}
+
+		section.features .feature:nth-of-type(2) .billboard {
+		    background-image: url(../img/photo-bridge@w320px@2x.jpg);
+		    background-size: 320px 255px;
 		}
 	}
 }
@@ -1003,12 +1037,34 @@ footer.page {
 		section.billboard {
 			background-image: url(../img/bg-main-billboard@w480px.jpg);
 		}
+
+		section.features .feature:nth-of-type(1) .billboard {
+		    background-image: url(../img/photo-city@w480px.jpg);
+		}
+
+		section.features .feature:nth-of-type(2) .billboard {
+		    background-image: url(../img/photo-bridge@w480px.jpg);
+		}
+
+		section.hotels .map {
+			background-image: url(../img/map-dummy@w480px.jpg);
+		}
 	}
 
 	@media (min-resolution: 192dpi) {
 		section.billboard {
 			background-image: url(../img/bg-main-billboard@w480px@2x.jpg);
 			background-size: 480px 390px;
+		}
+
+		section.features .feature:nth-of-type(1) .billboard {
+		    background-image: url(../img/photo-city@w480px@2x.jpg);
+		    background-size: 480px 255px;
+		}
+
+		section.features .feature:nth-of-type(2) .billboard {
+		    background-image: url(../img/photo-bridge@w480px@2x.jpg);
+		    background-size: 480px 255px;
 		}
 	}
 }
@@ -1019,6 +1075,18 @@ footer.page {
 			background-position: 50% 100%;
 			background-image: url(../img/bg-main-billboard@w767px.jpg);
 		}
+
+		section.features .feature:nth-of-type(1) .billboard {
+		    background-image: url(../img/photo-city@w767px.jpg);
+		}
+
+		section.features .feature:nth-of-type(2) .billboard {
+		    background-image: url(../img/photo-bridge@w767px.jpg);
+		}
+
+		section.hotels .map {
+			background-image: url(../img/map-dummy@w767px.jpg);
+		}
 	}
 
 	@media (min-resolution: 192dpi) {
@@ -1026,6 +1094,16 @@ footer.page {
 			background-position: 50% 100%;
 			background-image: url(../img/bg-main-billboard@w767px@2x.jpg);
 			background-size: 767px 425px;
+		}
+
+		section.features .feature:nth-of-type(1) .billboard {
+		    background-image: url(../img/photo-city@w767px@2x.jpg);
+		    background-size: 767px 255px;
+		}
+
+		section.features .feature:nth-of-type(2) .billboard {
+		    background-image: url(../img/photo-bridge@w767px@2x.jpg);
+		    background-size: 767px 255px;
 		}
 	}
 }
@@ -1036,6 +1114,18 @@ footer.page {
 			background-position: 50% 100%;
 			background-image: url(../img/bg-main-billboard@w1200px.jpg);
 		}
+
+		section.features .feature:nth-of-type(1) .billboard {
+		    background-image: url(../img/photo-city@w800px.jpg);
+		}
+
+		section.features .feature:nth-of-type(2) .billboard {
+		    background-image: url(../img/photo-bridge@w800px.jpg);
+		}
+
+		section.hotels .map {
+			background-image: url(../img/map-dummy@w1200px.jpg);
+		}
 	}
 
 	@media (min-resolution: 192dpi) {
@@ -1043,6 +1133,16 @@ footer.page {
 			background-position: 50% 100%;
 			background-image: url(../img/bg-main-billboard@w1200px@2x.jpg);
 			background-size: 1200px 600px;
+		}
+
+		section.features .feature:nth-of-type(1) .billboard {
+		    background-image: url(../img/photo-city@w800px@2x.jpg);
+		    background-size: 800px 256px;
+		}
+
+		section.features .feature:nth-of-type(2) .billboard {
+		    background-image: url(../img/photo-bridge@w800px@2x.jpg);
+		    background-size: 800px 256px;
 		}
 	}
 }

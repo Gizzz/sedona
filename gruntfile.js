@@ -112,7 +112,7 @@ module.exports = function(grunt) {
             }
         },
         responsive_images: {
-            "bg-main-billboard.jpg": {
+            "main-billboard": {
                 options: {
                     sizes: [
                         {
@@ -158,7 +158,7 @@ module.exports = function(grunt) {
                     dest: 'dev/img/',
                 }],
             },
-            "bg-main-billboard@2x.jpg": {
+            "main-billboard@2x": {
                 options: {
                     sizes: [
                         {
@@ -204,6 +204,138 @@ module.exports = function(grunt) {
                     dest: 'dev/img/',
                 }],
             },
+            "feature-billboards": {
+                options: {
+                    sizes: [
+                        {
+                            width: "320px",
+                            height: "255px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w320px",
+                            quality: 92,
+                        },
+                        {
+                            width: "480px",
+                            height: "255px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w480px",
+                            quality: 92,
+                        },
+                        {
+                            width: "767px",
+                            height: "255px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w767px",
+                            quality: 92,
+                        },
+                        {
+                            width: "800px",
+                            height: "256px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w800px",
+                            quality: 92,
+                        },
+                    ]
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dev/img/src/',
+                    src: ['photo-city.jpg', 'photo-bridge.jpg'],
+                    dest: 'dev/img/',
+                }],
+            },
+            "feature-billboards@2x": {
+                options: {
+                    sizes: [
+                        {
+                            width: "640px",
+                            height: "510px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w320px@2x",
+                            quality: 92,
+                        },
+                        {
+                            width: "960px",
+                            height: "510px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w480px@2x",
+                            quality: 92,
+                        },
+                        {
+                            width: "1534px",
+                            height: "510px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w767px@2x",
+                            quality: 92,
+                        },
+                        {
+                            width: "1600px",
+                            height: "512px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w800px@2x",
+                            quality: 92,
+                        },
+                    ]
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dev/img/src/2x/',
+                    src: ['photo-city.jpg', 'photo-bridge.jpg'],
+                    dest: 'dev/img/',
+                }],
+            },
+            "map-dummy": {
+                options: {
+                    sizes: [
+                        {
+                            width: "320px",
+                            height: "593px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w320px",
+                            quality: 92,
+                        },
+                        {
+                            width: "480px",
+                            height: "593px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w480px",
+                            quality: 92,
+                        },
+                        {
+                            width: "767px",
+                            height: "593px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w767px",
+                            quality: 92,
+                        },
+                        {
+                            width: "1200px",
+                            height: "595px",
+                            aspectRatio: false,
+                            rename: false,
+                            suffix: "@w1200px",
+                            quality: 92,
+                        },
+                    ]
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dev/img/src/',
+                    src: 'map-dummy.jpg',
+                    dest: 'dev/img/',
+                }],
+            },
         },
     });
 
@@ -233,7 +365,7 @@ module.exports = function(grunt) {
         'clean:prod',
         'copy:main',
         'copy:extra',
-        
+
         'usemin-task',
         'autoprefixer',
 
