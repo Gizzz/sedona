@@ -347,7 +347,17 @@ module.exports = function(grunt) {
                     'prod/index.html': 'prod/index.html', 
                 }
             },
-        }
+        },
+        cssmin: {
+            task: {
+                options: {
+                    keepSpecialComments: 0,
+                },
+                files: {
+                    'prod/styles/bundle.css': 'prod/styles/bundle.css',
+                }
+            }
+        },
     });
 
     // cmd line tasks
@@ -384,5 +394,6 @@ module.exports = function(grunt) {
         'imagemin',
 
         'htmlmin',
+        'cssmin:task',
     ]);
 };
