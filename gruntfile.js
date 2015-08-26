@@ -58,8 +58,8 @@ module.exports = function(grunt) {
                     // 'img/**',
                     // 'pict/**',
                     // 'fonts/**',
+                    '*.html',
                     'favicon.ico',
-                    '*.html'
                 ],
                 dest: 'prod/',
             },
@@ -337,6 +337,17 @@ module.exports = function(grunt) {
                 }],
             },
         },
+        htmlmin: {
+            task: {
+                options: {
+                    // removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: { 
+                    'prod/index.html': 'prod/index.html', 
+                }
+            },
+        }
     });
 
     // cmd line tasks
@@ -371,5 +382,7 @@ module.exports = function(grunt) {
 
         'resp-img-task',
         'imagemin',
+
+        'htmlmin',
     ]);
 };
